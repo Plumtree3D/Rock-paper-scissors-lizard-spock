@@ -1,0 +1,85 @@
+Projet Javascript
+
+Il vous est proposé 3 projets différents à faire en javascript à faire
+Dans chaque groupe vous vous répartirez les projets. A l’arrivée tous les projets devront être réalisés.
+
+
+
+Projet 01 : Sélecteur aléatoire d’apprenants pour les présentations du matin
+
+En arrivant sur la page nous trouverons un bouton « Choisir aléatoirement un apprenant »
+Au click de ce bouton le nom d’un apprenant apparaitra alors.
+Sur cette page nous trouverons aussi deux colonnes « Les apprenants pas encore passés » et « Les apprenants déjà passés »
+L’apprenant qui viendra d’être tiré devra apparaitre dans la colonne « Les apprenants déjà passés » et disparaitre de la colonne « Les apprenants pas encore passés »
+Au nouveau click du bouton « Choisir aléatoirement un apprenant » l’apprenant tiré viendra s’ajouter à ceux déjà présent dans la colonne « Les apprenants déjà passés » et disparaitre de la colonne « Les apprenants pas encore passés »
+
+Contraintes : 
+•	Il faut qu’au rechargement de la page les résultats soient conservés et que nous ne nous retrouvions pas dans la situation initiale. Attention ne pas utiliser de serveur Node ou de base de données, de fichiers textes ou JSON externes
+•	Une fois que tous les apprenants ont été tirés, la liste présente dans la colonne « Les apprenants pas encore passés » doit être complète et celle dans « Les apprenants déjà passés »
+•	Votre projet doit être design et adaptatif
+Bonus
+•	Vous pouvez ajouter des animations pour rende votre projet plus attractif
+
+
+
+Projet 02 : Un toDoList
+
+Sur ce projet, l’objectif est simple, il vous faudra réaliser une toDoList. A l’arrivée sur la page vous pourrez saisir la tache à réaliser. Une fois validée celle-ci s’ajoutera à la liste des taches à faire. A côté de chaque taches un petit bouton de suppression vous permettra de supprimer la tache ciblée.
+
+Contraintes : 
+•	Il faut qu’au rechargement de la page les taches à faire déjà saisies soient conservées et que nous ne nous retrouvions pas dans la situation initiale. Attention ne pas utiliser de serveur Node ou de base de données, de fichiers textes ou JSON externes
+•	Votre projet doit être design et adaptatif
+Bonus : 
+•	Avant de supprimer la tache au click de sur celle-ci vous pouvez la barrer, montant ainsi que vous l’avez réalisé.
+•	Vous pouvez ajouter des animations pour rende votre projet plus attractif
+
+
+
+Projet 03 : Pierre feuille ciseaux
+
+Les règles classiques du pierre feuille ciseaux s’appliquent toujours dans cette évolution, néanmoins il faut ajouter deux symboles : Spock et le lézard. 
+Cette variante permet surtout d’augmenter le nombre de combinaisons de 3 à 10. De cette manière, nous pouvons combler l’une des limitations du jeu de base. Pierre Feuille Ciseaux Lézard Spock a pour objectif de limiter le nombre d’égalités entre deux joueurs, et nommer plus rapidement le vainqueur !
+Voici les règles de pierre feuille ciseaux adaptés par le Docteur Sheldon Cooper, et toutes les combinaisons permettant de remporter (ou perdre) la partie :
+•	Les ciseaux coupent le papier,
+•	le papier bat la pierre,
+•	la pierre écrase le lézard,
+•	le lézard empoisonne Spock.
+•	Spock écrabouille les ciseaux,
+•	les ciseaux décapitent le lézard,
+•	le lézard mange le papier,
+•	le papier repousse Spock,
+•	Spock détruit la pierre.
+•	La pierre bat les ciseaux
+Au click d’une des vignette l’utilisateur fera son choix. L’ordinateur choisira alors aléatoirement une carte.
+En fonction des choix de chacun et des règles, l’utilisateur ou l’ordinateur marquera un point par manche. Une partie se gagne lorsque 3 manches sont gagnées par l’un ou l’autre. 
+Un compteur affichera le score de l’ordinateur et de l’utilisateur
+
+Exemple : l’utilisateur gagne la première manche le score sera utilisateur 1 – ordinateur 0
+
+Lorsque l’utilisateur gagne la partie, un écran lui signifiant qu’il a gagné apparaitra, tout comme s’il a perdu.
+Vous comptabiliserez et stockerez et afficherez le nombre de partie totale gagnées par l’utilisateur et l’ordinateur. 
+Contraintes : 
+•	Il faut qu’au rechargement de la page le nombre de parties gagnées par l’utilisateur et l’ordinateur soit conservé et que nous ne nous retrouvions pas dans la situation initiale. Attention ne pas utiliser de serveur Node ou de base de données, de fichiers textes ou JSON externes
+•	Votre projet doit être design et adaptatif
+Bonus : 
+•	Vous pouvez ajouter un bouton qui réinitialisera le nombre de partie gagnées / perdues
+•	Vous pouvez ajouter des animations pour rende votre projet plus attractif
+
+
+
+Durée : 7 jours
+Livrables : Projet sur Github + fichiers sur serveur
+Travail à réaliser par groupe de 3.
+
+Groupes : 
+•	Céleste – Laurent – Arthur
+•	Yamina – Alfonso – Dylan
+•	Francis – Tommy – Josélito
+•	Aleaddin – Lucas - Marley
+
+Date : 01/09/2021 au 09/09/2021
+
+
+
+
+

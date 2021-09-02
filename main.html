@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Rock, Paper, Scissors, Lizard, Spock! </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <div id="player"> player </div>
+        <button id="rock" onclick="getId(this)"> ROCK </button>
+        <button id="paper" onclick="getId(this)"> PAPER </button>
+        <button id="scissors" onclick="getId(this)"> SCISSORS </button>
+        <button id="lizard" onclick="getId(this)"> LIZARD </button>
+        <button id="spock" onclick="getId(this)"> SPOCK </button>
+        <div id="wopr"> wopr </div>
+        <p id="resultat"></p>
+    </div>
+
+
+
+<!-- SCRIPT -->
+    <script>
+        const signs = ['paper','rock','scissors','lizard','spock'];
+        
+        function getId(btn) {
+            let playerInput = btn.id;
+            let woprInput = signs[Math.floor(Math.random() * signs.length)];
+            console.log(playerInput)
+            console.log(woprInput)
+            if (woprInput == playerInput) {console.log("tie"); }
+            else {
+                if (playerInput === "rock"){
+                    if (woprInput === "scissors" || woprInput === "lizard") { console.log("win");
+                    } else { console.log("lose"); }
+
+                    } else if (playerInput === "paper") {
+                        if (woprInput === "rock" || woprInput === "spock" ) { console.log("win");
+                        } else { console.log("lose");}
+                        
+                    }else if (playerInput === "scissors") {
+                        if (woprInput === "paper" || woprInput === "lizard") { console.log("win");
+                        } else { console.log("lose");}
+                    }
+                    else if (playerInput === "lizard") {
+                        if (woprInput === "paper" || woprInput === "spock") { console.log("win");
+                        } else { console.log("lose");}
+                    }
+                    else if (playerInput === "spock") {
+                        if (woprInput === "scissors" || woprInput === "rock") { console.log("win");
+                        } else { console.log("lose");}
+                    }
+                }    
+        }
+
+
+    </script> 
+</body>
+</html>

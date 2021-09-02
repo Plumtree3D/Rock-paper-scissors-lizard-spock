@@ -8,55 +8,83 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <button onclick="clear()"> Clear Streak </button> <p id="streak"> Streak </p>  
     <div class="content">
-        <div id="player"> player </div>
-        <button id="rock" onclick="getId(this)"> ROCK </button>
-        <button id="paper" onclick="getId(this)"> PAPER </button>
-        <button id="scissors" onclick="getId(this)"> SCISSORS </button>
-        <button id="lizard" onclick="getId(this)"> LIZARD </button>
-        <button id="spock" onclick="getId(this)"> SPOCK </button>
-        <div id="wopr"> wopr </div>
-        <p id="resultat"></p>
+        <div class="choices">
+            <button id="rock" onclick="getId(this)"></button>
+            <button id="paper" onclick="getId(this)"></button>
+            <button id="scissors" onclick="getId(this)"></button>
+            <button id="lizard" onclick="getId(this)"></button>
+            <button id="spock" onclick="getId(this)"></button>
+        </div>
+        <div id="player"></div>
+        <div id="wopr"></div>
     </div>
 
 
 
+
+
+
+
+
     <script>
+
         const signs = ['paper','rock','scissors','lizard','spock'];
+
+        let woprRound = 0;
+        let playerRound = 0;
+        let woprStreak = 0;
+        let playerStreak = 0;
+
+        // function clear() {
+        //     // playerStreak = 0;
+        //     // woprStreak = 0;
+        //     // document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak;
+        //     console.log(woprStreak, playerStreak);
+        // }
         
         function getId(btn) {
-            let playerInput = btn.id;
-            let woprInput = signs[Math.floor(Math.random() * signs.length)];
-            console.log(playerInput)
-            console.log(woprInput)
-            if (woprInput == playerInput) {console.log("tie"); }
-            else if ((playerInput == "rock" && woprInput == "scissors") || (playerInput == "rock" && woprInput == "lizard") || (playerInput == "paper" && woprInput == "rock") || (playerInput == "paper" && woprInput == "spock") || (playerInput == "scissors" && woprInput == "paper") || (playerInput == "scissors" && woprInput == "lizard") || (playerInput == "lizard" && woprInput == "paper") ||(playerInput == "lizard" && woprInput == "spock") || (playerInput == "spock" && woprInput == "rock") || (playerInput == "spock" && woprInput == "scissors")) { console.log("win");
-            } else { console.log("lose");}
+            if (playerRound < 3 && woprRound < 3) {
+                let playerInput = btn.id;
+                let woprInput = signs[Math.floor(Math.random() * signs.length)];
+                console.log("player: " + playerInput); console.log("WOPR: " +woprInput);
+                    if (woprInput == playerInput) {tie();}
+                    else if ((playerInput == "rock" && (woprInput == "scissors" || woprInput == "lizard"))
+                            || (playerInput == "paper" && (woprInput == "rock" || woprInput == "spock"))
+                            || (playerInput == "scissors" && (woprInput == "paper" || woprInput == "lizard"))
+                            || (playerInput == "lizard" && (woprInput == "paper" || woprInput == "spock")) 
+                            || (playerInput == "spock" && (woprInput == "rock" || woprInput == "scissors"))) 
+                            { win();} 
+                    else {lose();}
+                } else { fin();}
+        }
+        
+
+        function tie() {
+            console.log("tie");
+            console.log(playerRound); console.log(woprRound);
         }
 
+        function lose() {
+            console.log("lose");
+            woprRound += 1; 
+            console.log(playerRound); console.log(woprRound);
+        }
 
-                // if (playerInput === "rock"){
-                //     if (woprInput === "scissors" || woprInput === "lizard") { console.log("win");
-                //     } else { console.log("lose"); }
+        function win() {
+            console.log("win");
+            playerRound += 1;
+            console.log(playerRound); console.log(woprRound);
+        }
 
-                //     } else if (playerInput === "paper") {
-                //         if (woprInput === "rock" || woprInput === "spock" ) { console.log("win");
-                //         } else { console.log("lose");}
-                        
-                //     }else if (playerInput === "scissors") {
-                //         if (woprInput === "paper" || woprInput === "lizard") { console.log("win");
-                //         } else { console.log("lose");}
-                //     }
-                //     else if (playerInput === "lizard") {
-                //         if (woprInput === "paper" || woprInput === "spock") { console.log("win");
-                //         } else { console.log("lose");}
-                //     }
-                //     else {
-                //         if (woprInput === "scissors" || woprInput === "rock") { console.log("win");
-                //         } else { console.log("lose");}
-                //     }
-        //         }    
-        // }
+        function fin() {
+            if (playerRound > woprRound) {
+            console.log("Game over, you won " + playerRound  + " to " + woprRound), playerStreak+= 1, playerRound = 0, woprRound = 0, document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak }
+            else {console.log("Game over, you lost " + woprRound + " to " + playerRound), playerRound = 0, woprRound = 0, woprStreak+= 1, document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak }
+        }
+
 
 
     </script> 

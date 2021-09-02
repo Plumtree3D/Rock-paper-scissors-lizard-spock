@@ -4,15 +4,56 @@
 }
 
 #player {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: blue;
+    width: 40vw;
+    height: 100vh;
+    background-color: #ffd6d6;
 }
 
 #wopr {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: blue;
+    width: 40vw;
+    height: 100vh;
+    background-color: #d5e5ff;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 400px;
+}
+
+.choices #paper, .choices #lizard {
+    align-self: center;
+}
+
+#rock, #paper, #scissors, #lizard, #spock {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: transparent;
+    width: 178px;
+    height: 178px;
+    border: none;
+    cursor: pointer;
+
+}
+
+#rock {
+    background-image: url(images/rock.png);
+
+}
+
+#paper {
+    background-image: url(images/paper.png);
+}
+
+#scissors {
+    background-image: url(images/scissors.png);
+}
+
+#lizard {
+    background-image: url(images/lizard.png);
+}
+
+#spock {
+    background-image: url(images/spock.png);
 }

@@ -21,7 +21,6 @@
 
 
 
-<!-- SCRIPT -->
     <script>
         const signs = ['paper','rock','scissors','lizard','spock'];
         
@@ -31,29 +30,33 @@
             console.log(playerInput)
             console.log(woprInput)
             if (woprInput == playerInput) {console.log("tie"); }
-            else {
-                if (playerInput === "rock"){
-                    if (woprInput === "scissors" || woprInput === "lizard") { console.log("win");
-                    } else { console.log("lose"); }
-
-                    } else if (playerInput === "paper") {
-                        if (woprInput === "rock" || woprInput === "spock" ) { console.log("win");
-                        } else { console.log("lose");}
-                        
-                    }else if (playerInput === "scissors") {
-                        if (woprInput === "paper" || woprInput === "lizard") { console.log("win");
-                        } else { console.log("lose");}
-                    }
-                    else if (playerInput === "lizard") {
-                        if (woprInput === "paper" || woprInput === "spock") { console.log("win");
-                        } else { console.log("lose");}
-                    }
-                    else if (playerInput === "spock") {
-                        if (woprInput === "scissors" || woprInput === "rock") { console.log("win");
-                        } else { console.log("lose");}
-                    }
-                }    
+            else if ((playerInput == "rock" && woprInput == "scissors") || (playerInput == "rock" && woprInput == "lizard") || (playerInput == "paper" && woprInput == "rock") || (playerInput == "paper" && woprInput == "spock") || (playerInput == "scissors" && woprInput == "paper") || (playerInput == "scissors" && woprInput == "lizard") || (playerInput == "lizard" && woprInput == "paper") ||(playerInput == "lizard" && woprInput == "spock") || (playerInput == "spock" && woprInput == "rock") || (playerInput == "spock" && woprInput == "scissors")) { console.log("win");
+            } else { console.log("lose");}
         }
+
+
+                // if (playerInput === "rock"){
+                //     if (woprInput === "scissors" || woprInput === "lizard") { console.log("win");
+                //     } else { console.log("lose"); }
+
+                //     } else if (playerInput === "paper") {
+                //         if (woprInput === "rock" || woprInput === "spock" ) { console.log("win");
+                //         } else { console.log("lose");}
+                        
+                //     }else if (playerInput === "scissors") {
+                //         if (woprInput === "paper" || woprInput === "lizard") { console.log("win");
+                //         } else { console.log("lose");}
+                //     }
+                //     else if (playerInput === "lizard") {
+                //         if (woprInput === "paper" || woprInput === "spock") { console.log("win");
+                //         } else { console.log("lose");}
+                //     }
+                //     else {
+                //         if (woprInput === "scissors" || woprInput === "rock") { console.log("win");
+                //         } else { console.log("lose");}
+                //     }
+        //         }    
+        // }
 
 
     </script> 

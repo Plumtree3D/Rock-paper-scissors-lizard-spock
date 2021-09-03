@@ -9,7 +9,8 @@
 </head>
 <body>
 
-    <button onclick="clear()"> Clear Streak </button> <p id="streak"> Streak </p>  
+    <button onclick="Clear()"> Clear Streak </button> 
+    <p id="streak"> Streak </p>  
     <div class="content">
         <div class="choices">
             <button id="rock" onclick="getId(this)"></button>
@@ -18,38 +19,84 @@
             <button id="lizard" onclick="getId(this)"></button>
             <button id="spock" onclick="getId(this)"></button>
         </div>
-        <div id="player"></div>
-        <div id="wopr"></div>
+        <div id="player">
+            <div id="playerAnimation"></div>
+        </div>
+        <div id="wopr">
+            <div id="woprAnimation"></div>
+        </div>
     </div>
 
 
 
 
-
-
-
-
     <script>
+        //LOCAL STORAGE//
+        
+        const signs = ['rock','paper','scissors','lizard','spock'];
 
-        const signs = ['paper','rock','scissors','lizard','spock'];
+        let rock = 0; 
+        let paper = -450;
+        let scissors = -900;
+        let lizard = -1350;
+        let spock = -1800;
 
-        let woprRound = 0;
-        let playerRound = 0;
-        let woprStreak = 0;
-        let playerStreak = 0;
 
-        // function clear() {
-        //     // playerStreak = 0;
-        //     // woprStreak = 0;
-        //     // document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak;
-        //     console.log(woprStreak, playerStreak);
-        // }
+
+        let woprRound = new Number(0);
+        let playerRound = new Number(0);
+        let playerStreak = new Number(0);
+        let woprStreak = new Number(0);
+
+
+
+        if(!localStorage.getItem('pStreak')) {
+            populateStorage();
+        } else {
+            setValues();
+            document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak;
+        }
+
+        function populateStorage () {
+            localStorage.setItem('pStreak', playerStreak);
+            localStorage.setItem('wStreak', woprStreak);
+
+            setValues();
+        }
+
+        function setValues() {
+            let pStreak = localStorage.getItem('pStreak');
+            let wStreak = localStorage.getItem('wStreak');
+            playerStreak = pStreak;
+            woprStreak = wStreak;
+        }
+
+        function Clear() {localStorage.clear(); document.location.reload()}
+
+
+        //FUNCTIONS//
+
+        player = document.getElementById("player")
+        pAnim = document.getElementById("playerAnimation").style.backgroundPositionX
+
+
+
+
         
         function getId(btn) {
             if (playerRound < 3 && woprRound < 3) {
-                let playerInput = btn.id;
-                let woprInput = signs[Math.floor(Math.random() * signs.length)];
-                console.log("player: " + playerInput); console.log("WOPR: " +woprInput);
+                var playerInput = btn.id;
+                var woprInput = signs[Math.floor(Math.random() * signs.length)];
+                if (playerInput == "spock") {pAnim= "-1800px"}
+
+                game() 
+
+            
+            } else { fin();}
+
+
+
+        function game() {
                     if (woprInput == playerInput) {tie();}
                     else if ((playerInput == "rock" && (woprInput == "scissors" || woprInput == "lizard"))
                             || (playerInput == "paper" && (woprInput == "rock" || woprInput == "spock"))
@@ -58,9 +105,13 @@
                             || (playerInput == "spock" && (woprInput == "rock" || woprInput == "scissors"))) 
                             { win();} 
                     else {lose();}
-                } else { fin();}
+                } 
+
         }
-        
+
+
+
+     
 
         function tie() {
             console.log("tie");
@@ -71,18 +122,21 @@
             console.log("lose");
             woprRound += 1; 
             console.log(playerRound); console.log(woprRound);
+            document.getElementById("player").style.backgroundColor = "red";
         }
 
         function win() {
             console.log("win");
             playerRound += 1;
             console.log(playerRound); console.log(woprRound);
+            document.getElementById("wopr").style.backgroundColor = "red";
         }
 
         function fin() {
             if (playerRound > woprRound) {
-            console.log("Game over, you won " + playerRound  + " to " + woprRound), playerStreak+= 1, playerRound = 0, woprRound = 0, document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak }
-            else {console.log("Game over, you lost " + woprRound + " to " + playerRound), playerRound = 0, woprRound = 0, woprStreak+= 1, document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak }
+            console.log("Game over, you won " + playerRound  + " to " + woprRound), playerStreak++, playerRound = 0, woprRound = 0, document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak }
+            else {console.log("Game over, you lost " + woprRound + " to " + playerRound), playerRound = 0, woprRound = 0, woprStreak++, document.getElementById("streak").innerHTML = "Streak Player= " + playerStreak + "WOPR= " + woprStreak };
+            populateStorage(); 
         }
 
 

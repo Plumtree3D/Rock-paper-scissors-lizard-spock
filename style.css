@@ -7,12 +7,32 @@
     width: 40vw;
     height: 100vh;
     background-color: #ffd6d6;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+#playerAnimation {
+    width: 450px;
+    height: 450px;
+    background-image: url(images/sprite.svg);
 }
 
 #wopr {
     width: 40vw;
     height: 100vh;
     background-color: #d5e5ff;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+#woprAnimation {
+    width: 450px;
+    height: 450px;
+    background-image: url(images/sprite.svg);
+    transform: scaleX(-1);
+    background-position-X: -1800px;
 }
 
 .choices {
@@ -57,3 +77,4 @@
 #spock {
     background-image: url(images/spock.png);
 }
+
